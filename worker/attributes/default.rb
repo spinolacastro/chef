@@ -1,0 +1,1 @@
+default['worker']['base_dir'] = "/opt/"
