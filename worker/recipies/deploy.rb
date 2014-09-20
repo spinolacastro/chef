@@ -1,14 +1,7 @@
 include_recipe 'deploy'
 
 node[:deploy].each do |application, deploy|
-  opsworks_deploy_dir do
-    user deploy[:user]
-    group deploy[:group]
-    path deploy[:deploy_to]
-  end
-
-  opsworks_deploy do
-    deploy_data deploy
-    app application
-  end
+ 	if deploy[:application_type] != 'php'
+  	Chef::Log.debug("Skipping php::configure application #{application} as it is not an PHP app")
+ 	next
 end
