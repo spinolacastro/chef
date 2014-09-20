@@ -5,7 +5,7 @@ node[:deploy].each do |application, deploy|
   end
 
   gem_package "webrick" do
-		action : install
+		action :install
 	end
 
   # write out opsworks.php
