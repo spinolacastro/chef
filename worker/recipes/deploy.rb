@@ -15,12 +15,4 @@ node[:deploy].each do |application, deploy|
     deploy_data deploy
     app application
   end
-
-  current_dir = ::File.join(deploy[:deploy_to], 'current')
-  webapp_dir = ::File.join(node['worker']['basedir'], deploy[:document_root].blank? ? application : deploy[:document_root])
-
-  link webapp_dir do
-    to current_dir
-    action :create
-  end
 end
